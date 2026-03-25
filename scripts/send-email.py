@@ -28,17 +28,13 @@ def load_file(path):
 
 def send_newsletter(sender, password, recipients, edition, output_dir):
     email_html_path = os.path.join(output_dir, f"flava-pulse-{edition}-email.html")
-    interactive_html_path = os.path.join(output_dir, f"flava-pulse-{edition}.html")
+    pdf_path = os.path.join(output_dir, f"flava-pulse-{edition}.pdf")
 
     if not os.path.exists(email_html_path):
         print(f"Error: {email_html_path} not found")
         sys.exit(1)
-    if not os.path.exists(interactive_html_path):
-        print(f"Error: {interactive_html_path} not found")
-        sys.exit(1)
 
     email_body = load_file(email_html_path)
-    interactive_html = load_file(interactive_html_path)
 
     msg = MIMEMultipart("mixed")
     msg["From"] = f"Flava Pulse <{sender}>"
@@ -49,17 +45,19 @@ def send_newsletter(sender, password, recipients, edition, output_dir):
     html_part = MIMEText(email_body, "html", "utf-8")
     msg.attach(html_part)
 
-    attachment = MIMEApplication(
-        interactive_html.encode("utf-8"),
-        _subtype="html",
-        Name=f"flava-pulse-{edition}.html",
-    )
-    attachment.add_header(
-        "Content-Disposition",
-        "attachment",
-        filename=f"flava-pulse-{edition}.html",
-    )
-    msg.attach(attachment)
+    if os.path.exists(pdf_path):
+        with open(pdf_path, "rb") as f:
+            pdf_data = f.read()
+        pdf_attachment = MIMEApplication(pdf_data, _subtype="pdf")
+        pdf_attachment.add_header(
+            "Content-Disposition",
+            "attachment",
+            filename=f"flava-pulse-{edition}.pdf",
+        )
+        msg.attach(pdf_attachment)
+        print(f"PDF attached: {pdf_path} ({len(pdf_data) / 1024:.0f} KB)")
+    else:
+        print(f"Warning: {pdf_path} not found, sending without attachment")
 
     print(f"Connecting to smtp.gmail.com:465...")
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
