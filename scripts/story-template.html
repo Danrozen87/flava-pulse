@@ -1,0 +1,30 @@
+<!-- Single Story Card Template -->
+<!-- Copy this block for each story in the newsletter -->
+
+<div class="story-card">
+  <div class="story-summary">
+    <div class="story-indicator"></div>
+    <div class="story-content">
+      <div class="story-headline">{{HEADLINE}}</div>
+      <div class="story-tldr">{{TLDR}}</div>
+      <div class="story-meta">
+        <span class="recency-tag">{{RECENCY}}</span>
+        <span class="story-source-badge">
+          <a href="{{SOURCE_URL_1}}" target="_blank" rel="noopener">{{SOURCE_NAME_1}}</a>
+        </span>
+        <span class="story-source-badge">
+          <a href="{{SOURCE_URL_2}}" target="_blank" rel="noopener">{{SOURCE_NAME_2}}</a>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="story-detail">
+    <p>{{DETAIL_PARAGRAPH_1}}</p>
+    <p>{{DETAIL_PARAGRAPH_2}}</p>
+    <div class="relevance">{{FLAVA_RELEVANCE}}</div>
+    <div class="sources-list">
+      <span>Källor</span>
+      {{SOURCE_LINKS}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,276 @@
+{
+  "edition": {
+    "number": "20260325-01",
+    "title": "Rost-AI passerar kritisk grans, HeyGen byter arkitektur",
+    "date_iso": "2026-03-25",
+    "date_display": "25 mars 2026",
+    "source_count": 30,
+    "story_count": 17
+  },
+  "stories": [
+    {
+      "id": "elevenlabs-11ai-v3",
+      "section": "tech_ai",
+      "headline": "ElevenLabs lanserar 11.ai och Eleven v3 med emotionell rost",
+      "recency": "fresh",
+      "scores": { "temporal": 8, "impact": 9, "value": 8 },
+      "claims": [
+        "11.ai uses MCP protocol for workflow management",
+        "Eleven v3 provides emotional voice expression",
+        "11 Voices docuseries premiered at SXSW March 11"
+      ],
+      "predictions": [],
+      "actions": ["Evaluate Eleven v3 for Flava voice integration upgrade"]
+    },
+    {
+      "id": "voice-ai-market-crowding",
+      "section": "tech_ai",
+      "headline": "Rost-AI-marknaden for restauranger blir trangt",
+      "recency": "fresh",
+      "scores": { "temporal": 7, "impact": 6, "value": 7 },
+      "claims": [
+        "New entrants: Vox, Loman, Incept AI, Palona AI, Maple, Revmo.ai since 2023",
+        "SoundHound expanding beyond drive-thru to call, text, in-car",
+        "Maple integrated with Shift4 SkyTab POS"
+      ],
+      "predictions": [],
+      "actions": ["Monitor if any new entrant targets in-dining + taste profiling"]
+    },
+    {
+      "id": "swiggy-voice-ordering-india",
+      "section": "tech_ai",
+      "headline": "Swiggy lanserar flersprakig rostbestallning i Indien",
+      "recency": "breaking",
+      "scores": { "temporal": 10, "impact": 4, "value": 5 },
+      "claims": [
+        "Swiggy partnered with Sarvam AI for multilingual voice ordering",
+        "Covers food delivery, Instamart, and Dineout platforms"
+      ],
+      "predictions": [],
+      "actions": []
+    },
+    {
+      "id": "us-consumer-spending-decline",
+      "section": "hospitality",
+      "headline": "68% av amerikanska konsumenter skurit ner restaurangbesoken",
+      "recency": "fresh",
+      "scores": { "temporal": 8, "impact": 7, "value": 8 },
+      "claims": [
+        "68% of US consumers cut restaurant spending in 2026",
+        "$90/week average spending, down from $115 in June 2025",
+        "97% of operators sharpening guest experience focus"
+      ],
+      "predictions": ["Consumer spending pressure will continue through 2026"],
+      "actions": ["Position Flava as revenue-per-visit optimizer for pressured operators"]
+    },
+    {
+      "id": "swedish-restaurant-trends-2026",
+      "section": "hospitality",
+      "headline": "Svensk restaurangbransch 2026: digitalisering, upplevelse, hallbarhet",
+      "recency": "recent",
+      "scores": { "temporal": 6, "impact": 8, "value": 7 },
+      "claims": [
+        "6 strong trends identified by Menigo for 2026",
+        "AI used for inventory, purchasing prediction, waste reduction",
+        "Plant-based moved from niche to premium segment",
+        "Frantzen Group opening Emberlin at Stureplan",
+        "Pontus Frithiof opening La Girafe in Uppsala"
+      ],
+      "predictions": [],
+      "actions": []
+    },
+    {
+      "id": "hospitality-tech360-london",
+      "section": "hospitality",
+      "headline": "Hospitality Tech360 i London 30 mars",
+      "recency": "fresh",
+      "scores": { "temporal": 8, "impact": 5, "value": 5 },
+      "claims": [
+        "Hospitality Tech360 at Excel London March 30-April 1 2026",
+        "Features PizzaExpress, Honest Burgers, Pizza Pilgrims",
+        "UK moving to API-first cloud-based systems"
+      ],
+      "predictions": [],
+      "actions": ["Consider attending or monitoring announcements"]
+    },
+    {
+      "id": "ai-dynamic-taste-profiles",
+      "section": "taste",
+      "headline": "AI bygger dynamiska smakprofiler som uppdateras i realtid",
+      "recency": "recent",
+      "scores": { "temporal": 5, "impact": 8, "value": 7 },
+      "claims": [
+        "AI systems now analyze browsing behavior, dietary preferences, allergens, location, weather",
+        "Profiles are dynamic: spicy at night, light at lunch, comfort food on weekends",
+        "QR-linked loyalty apps provide AI recommendations to servers"
+      ],
+      "predictions": ["Dynamic taste profiles will become standard in premium dining within 2 years"],
+      "actions": []
+    },
+    {
+      "id": "gen-z-ai-food-discovery",
+      "section": "taste",
+      "headline": "15% av Gen Z anvander AI-chatbotar for att hitta matprodukter",
+      "recency": "recent",
+      "scores": { "temporal": 5, "impact": 7, "value": 7 },
+      "claims": [
+        "15% of Gen Z use AI to research food products (SPINS 2026)",
+        "11% say AI chatbots are primary food discovery method"
+      ],
+      "predictions": ["AI food discovery adoption will increase as tools improve"],
+      "actions": []
+    },
+    {
+      "id": "eu-tracemap-launch",
+      "section": "taste",
+      "headline": "EU lanserar TraceMap: AI-plattform for livsmedelsakerhet",
+      "recency": "fresh",
+      "scores": { "temporal": 7, "impact": 6, "value": 6 },
+      "claims": [
+        "EU Commission launched TraceMap on March 10 2026",
+        "Platform detects food fraud, traces contamination, speeds recalls",
+        "EU Regulation 1169/2011 requires 14-allergen declaration"
+      ],
+      "predictions": [],
+      "actions": ["Monitor TraceMap for potential integration opportunities"]
+    },
+    {
+      "id": "heygen-liveavatar-migration",
+      "section": "avatar",
+      "headline": "HeyGen stanger Interactive Avatar 31 mars, LiveAvatar tar over",
+      "recency": "breaking",
+      "scores": { "temporal": 10, "impact": 10, "value": 10 },
+      "claims": [
+        "Interactive Avatar sunset March 31 2026",
+        "LiveAvatar uses same Avatar IV quality",
+        "ElevenLabs V3 Voice Model supported in new API",
+        "HeyGen at $95M ARR, G2 fastest growing product"
+      ],
+      "predictions": ["Migration must be completed by March 31"],
+      "actions": ["URGENT: Migrate Flava HeyGen integration to LiveAvatar SDK"]
+    },
+    {
+      "id": "d-id-ai-agents-2",
+      "section": "avatar",
+      "headline": "D-ID pivoterar till AI Agents 2.0, vinner CES 2026 Innovation Award",
+      "recency": "recent",
+      "scores": { "temporal": 6, "impact": 7, "value": 6 },
+      "claims": [
+        "D-ID pivoted from video tool to conversational AI platform",
+        "AI Agents 2.0: autonomous 24/7 digital assistants",
+        "Deployable on websites, mobile apps, kiosks",
+        "Won CES 2026 Innovation Award"
+      ],
+      "predictions": ["D-ID will target restaurant kiosk market"],
+      "actions": ["Monitor D-ID restaurant deployments"]
+    },
+    {
+      "id": "trivec-caspeco-integration",
+      "section": "market",
+      "headline": "Trivec fullt integrerat i Caspeco: en plattform, ett ekosystem",
+      "recency": "background",
+      "scores": { "temporal": 3, "impact": 9, "value": 7 },
+      "claims": [
+        "Trivec became part of Caspeco in spring 2025",
+        "Single platform: POS, staffing, booking, analytics",
+        "Presence in Sweden, France, Belgium, Netherlands",
+        "~6500+ restaurants"
+      ],
+      "predictions": [],
+      "actions": ["Continue Caspeco integration as 40% of MVP scope"]
+    },
+    {
+      "id": "choice-series-a",
+      "section": "market",
+      "headline": "Choice tar in $7,1M for europeiskt restaurang-OS",
+      "recency": "fresh",
+      "scores": { "temporal": 8, "impact": 6, "value": 6 },
+      "claims": [
+        "Choice raised $7.1M Series A on March 16 2026",
+        "Prague-founded SaaS: ordering, payments, reservations, marketplace",
+        "1.5 million monthly orders across 9 CEE markets",
+        "Funding for AI modules and sales expansion"
+      ],
+      "predictions": ["Choice will expand to Nordic markets within 12 months"],
+      "actions": ["Monitor for Nordic market entry"]
+    },
+    {
+      "id": "dynamic-yield-gartner-leader",
+      "section": "market",
+      "headline": "Dynamic Yield utsedd till Gartner Leader for attonde aret i rad",
+      "recency": "recent",
+      "scores": { "temporal": 5, "impact": 6, "value": 5 },
+      "claims": [
+        "Named Gartner Magic Quadrant Leader 8th consecutive time in 2026",
+        "400+ brands using personalization",
+        "Restaurant application: drive-thru menu customization by time, weather, traffic"
+      ],
+      "predictions": [],
+      "actions": []
+    },
+    {
+      "id": "taco-bell-mcdonalds-voice-ai",
+      "section": "trends",
+      "headline": "Taco Bells rost-AI hanterar miljontals ordrar, McDonald's satsar pa 2026",
+      "recency": "fresh",
+      "scores": { "temporal": 7, "impact": 7, "value": 8 },
+      "claims": [
+        "Taco Bell voice AI processes millions of orders across hundreds of locations",
+        "8 seconds faster per order average",
+        "McDonald's ended IBM partnership June 2024, re-entering AI in 2026",
+        "Industry projection: 50% AI-handled drive-thru orders by end of 2026"
+      ],
+      "predictions": ["50% of US drive-thru orders AI-handled by end of 2026"],
+      "actions": ["Use Taco Bell validation in Flava sales pitch"]
+    },
+    {
+      "id": "adoption-not-features-barrier",
+      "section": "trends",
+      "headline": "Adoption, inte funktioner, ar den verkliga barriaren",
+      "recency": "recent",
+      "scores": { "temporal": 5, "impact": 8, "value": 8 },
+      "claims": [
+        "Adoption, not features, is the real barrier to tech success",
+        "No executive expressed strong confidence in AI adoption",
+        "41% of FSR operators cite profitability as top goal",
+        "Operators moving toward unified technology ecosystems"
+      ],
+      "predictions": [],
+      "actions": ["Leverage Flava's zero-install QR model as adoption answer"]
+    },
+    {
+      "id": "qr-ordering-standard-2026",
+      "section": "trends",
+      "headline": "QR-bestallning ar standard 2026: 57% okar investeringarna",
+      "recency": "recent",
+      "scores": { "temporal": 5, "impact": 7, "value": 7 },
+      "claims": [
+        "57% of companies increasing QR code investments in 2026",
+        "59% of smartphone users scan QR codes daily",
+        "Mr Yum and Meandu lack native POS integration"
+      ],
+      "predictions": [],
+      "actions": ["Position Flava's POS-integrated QR as differentiator vs Mr Yum/Meandu"]
+    }
+  ],
+  "arcs": [
+    {
+      "name": "Voice AI Drive-Thru Adoption",
+      "status": "active",
+      "data_points": ["50% prediction for end of 2026"],
+      "first_edition": "20260325-01"
+    },
+    {
+      "name": "HeyGen Platform Migration",
+      "status": "active",
+      "data_points": ["Interactive Avatar sunset March 31 2026"],
+      "first_edition": "20260325-01"
+    },
+    {
+      "name": "US Consumer Restaurant Spending",
+      "status": "active",
+      "data_points": ["$90/week Feb 2026, down from $115 June 2025"],
+      "first_edition": "20260325-01"
+    }
+  ]
+}

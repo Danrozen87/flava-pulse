@@ -1,0 +1,440 @@
+{
+  "meta": {
+    "version": "1.0",
+    "last_updated": "2026-03-25",
+    "description": "Verified source registry for Flava Pulse newsletter. Each source is categorized, geotagged, and scored for relevance."
+  },
+  "temporal_directives": {
+    "anchor_date": "2026-03-25",
+    "recency_tiers": {
+      "breaking": "0-24 hours",
+      "fresh": "1-7 days",
+      "recent": "7-30 days",
+      "background": "30-90 days"
+    },
+    "delta_tracking": true,
+    "note": "Always compare findings against prior newsletter editions. Flag reversals, failures, pivots, and follow-ups."
+  },
+  "categories": {
+    "tech_ai": {
+      "label": "Tech & AI",
+      "sources": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com",
+          "focus": "AI startups, funding rounds, product launches",
+          "frequency": "daily",
+          "search_terms": ["restaurant AI", "voice AI", "avatar tech", "conversational AI", "ElevenLabs", "HeyGen", "personalization engine"]
+        },
+        {
+          "name": "The Verge",
+          "url": "https://www.theverge.com",
+          "focus": "Consumer tech, AI products, voice assistants",
+          "frequency": "daily",
+          "search_terms": ["AI assistant", "voice technology", "real-time avatar", "digital human"]
+        },
+        {
+          "name": "VentureBeat",
+          "url": "https://venturebeat.com",
+          "focus": "Enterprise AI, LLM developments, AI infrastructure",
+          "frequency": "daily",
+          "search_terms": ["enterprise AI", "LLM", "voice AI enterprise", "personalization AI"]
+        },
+        {
+          "name": "Ars Technica",
+          "url": "https://arstechnica.com",
+          "focus": "Deep technical analysis, AI research, open source AI",
+          "frequency": "daily",
+          "search_terms": ["AI model", "speech synthesis", "real-time processing"]
+        },
+        {
+          "name": "AI News (artificialintelligence-news.com)",
+          "url": "https://www.artificialintelligence-news.com",
+          "focus": "Dedicated AI industry news",
+          "frequency": "daily",
+          "search_terms": ["conversational AI", "voice AI", "AI hospitality"]
+        },
+        {
+          "name": "Hugging Face Blog",
+          "url": "https://huggingface.co/blog",
+          "focus": "Open source AI models, new releases, benchmarks",
+          "frequency": "weekly",
+          "search_terms": ["speech model", "multimodal", "real-time inference"]
+        },
+        {
+          "name": "ElevenLabs Blog",
+          "url": "https://elevenlabs.io/blog",
+          "focus": "Voice AI product updates, new features, research",
+          "frequency": "irregular",
+          "search_terms": ["conversational AI", "voice agent", "text to speech"]
+        },
+        {
+          "name": "HeyGen Blog",
+          "url": "https://www.heygen.com/blog",
+          "focus": "Avatar technology, real-time video, lipsync",
+          "frequency": "irregular",
+          "search_terms": ["interactive avatar", "real-time avatar", "streaming avatar"]
+        },
+        {
+          "name": "LiveKit Blog",
+          "url": "https://blog.livekit.io",
+          "focus": "WebRTC infrastructure, real-time communication, AI agents",
+          "frequency": "irregular",
+          "search_terms": ["voice agent", "real-time AI", "WebRTC"]
+        },
+        {
+          "name": "Anthropic Blog",
+          "url": "https://www.anthropic.com/news",
+          "focus": "Claude model updates, AI safety, enterprise AI",
+          "frequency": "irregular",
+          "search_terms": ["Claude", "tool use", "enterprise AI"]
+        },
+        {
+          "name": "OpenAI Blog",
+          "url": "https://openai.com/blog",
+          "focus": "GPT models, voice mode, multimodal AI",
+          "frequency": "irregular",
+          "search_terms": ["voice mode", "real-time API", "multimodal"]
+        }
+      ]
+    },
+    "hospitality_nordic": {
+      "label": "Restaurang & Hospitality - Norden",
+      "sources": [
+        {
+          "name": "Visita (Svenska)",
+          "url": "https://www.visita.se",
+          "focus": "Swedish hospitality industry association, policy, statistics",
+          "frequency": "weekly",
+          "geo": "SE",
+          "search_terms": ["restaurangbranschen", "hospitality Sverige", "besoksnaring"]
+        },
+        {
+          "name": "Restaurangvarlden",
+          "url": "https://www.restaurangvarlden.se",
+          "focus": "Swedish restaurant industry news, trends, interviews",
+          "frequency": "daily",
+          "geo": "SE",
+          "search_terms": ["restaurang", "krog", "mat", "dryck", "Stockholm"]
+        },
+        {
+          "name": "Dagens Industri - Gastronomi",
+          "url": "https://www.di.se",
+          "focus": "Swedish business news, restaurant investments, food tech",
+          "frequency": "daily",
+          "geo": "SE",
+          "search_terms": ["restaurang", "foodtech", "hospitality investering"]
+        },
+        {
+          "name": "Breakit",
+          "url": "https://www.breakit.se",
+          "focus": "Swedish tech startups, venture capital, foodtech",
+          "frequency": "daily",
+          "geo": "SE",
+          "search_terms": ["foodtech", "restaurang tech", "AI startup Sverige"]
+        },
+        {
+          "name": "Nordic Food Innovation",
+          "url": "https://nordicfoodinnovation.com",
+          "focus": "Food innovation across Nordic countries",
+          "frequency": "weekly",
+          "geo": "Nordic",
+          "search_terms": ["food innovation", "Nordic food tech", "sustainable dining"]
+        },
+        {
+          "name": "Gastrogate / White Guide",
+          "url": "https://whiteguide.com",
+          "focus": "Nordic restaurant rankings, fine dining, culinary scene",
+          "frequency": "irregular",
+          "geo": "SE/Nordic",
+          "search_terms": ["basta restauranger", "fine dining", "guide"]
+        }
+      ]
+    },
+    "hospitality_europe": {
+      "label": "Restaurang & Hospitality - Europa",
+      "sources": [
+        {
+          "name": "Big Hospitality",
+          "url": "https://www.bighospitality.co.uk",
+          "focus": "UK hospitality industry news, London restaurant scene",
+          "frequency": "daily",
+          "geo": "UK",
+          "search_terms": ["London restaurant", "UK hospitality tech", "hospitality trends"]
+        },
+        {
+          "name": "The Caterer",
+          "url": "https://www.thecaterer.com",
+          "focus": "UK hospitality, hotels, restaurants, chef interviews",
+          "frequency": "daily",
+          "geo": "UK",
+          "search_terms": ["restaurant technology", "London dining", "hospitality innovation"]
+        },
+        {
+          "name": "DEHOGA (Tyskland)",
+          "url": "https://www.dehoga-bundesverband.de",
+          "focus": "German hospitality federation, industry statistics, policy",
+          "frequency": "weekly",
+          "geo": "DE",
+          "search_terms": ["Gastronomie", "Restaurant Deutschland", "Digitalisierung"]
+        },
+        {
+          "name": "Food Service Europe",
+          "url": "https://www.food-service-europe.com",
+          "focus": "Pan-European food service industry",
+          "frequency": "weekly",
+          "geo": "EU",
+          "search_terms": ["European restaurant", "food service trends", "gastronomy tech"]
+        },
+        {
+          "name": "Eater London",
+          "url": "https://london.eater.com",
+          "focus": "London restaurant openings, closings, trends",
+          "frequency": "daily",
+          "geo": "UK/London",
+          "search_terms": ["London restaurant", "new opening", "dining trend"]
+        }
+      ]
+    },
+    "hospitality_northamerica": {
+      "label": "Restaurang & Hospitality - Nordamerika",
+      "sources": [
+        {
+          "name": "Nation's Restaurant News (NRN)",
+          "url": "https://www.nrn.com",
+          "focus": "US restaurant industry, chains, technology, business",
+          "frequency": "daily",
+          "geo": "US",
+          "search_terms": ["restaurant technology", "AI ordering", "personalization", "POS system"]
+        },
+        {
+          "name": "Restaurant Dive",
+          "url": "https://www.restaurantdive.com",
+          "focus": "US restaurant industry analysis, tech adoption, operations",
+          "frequency": "daily",
+          "geo": "US",
+          "search_terms": ["restaurant AI", "voice ordering", "digital ordering", "POS"]
+        },
+        {
+          "name": "QSR Magazine",
+          "url": "https://www.qsrmagazine.com",
+          "focus": "Quick service restaurants, drive-thru tech, chains",
+          "frequency": "daily",
+          "geo": "US",
+          "search_terms": ["kiosk", "AI ordering", "drive-thru AI", "personalization"]
+        },
+        {
+          "name": "Skift Restaurant",
+          "url": "https://restaurant.skift.com",
+          "focus": "Restaurant and hospitality travel industry intelligence",
+          "frequency": "daily",
+          "geo": "US/Global",
+          "search_terms": ["hospitality tech", "restaurant innovation", "hotel dining"]
+        },
+        {
+          "name": "Eater (US cities)",
+          "url": "https://www.eater.com",
+          "focus": "Restaurant news for LA, NYC, Miami, Las Vegas, Houston",
+          "frequency": "daily",
+          "geo": "US",
+          "search_terms": ["New York restaurant", "Los Angeles dining", "Las Vegas", "Miami", "Houston"]
+        },
+        {
+          "name": "Restaurants Canada",
+          "url": "https://www.restaurantscanada.org",
+          "focus": "Canadian restaurant industry, Toronto, Montreal, Ottawa",
+          "frequency": "weekly",
+          "geo": "CA",
+          "search_terms": ["Canadian restaurant", "Toronto dining", "Montreal food"]
+        },
+        {
+          "name": "National Restaurant Association (NRA)",
+          "url": "https://restaurant.org",
+          "focus": "US restaurant industry research, workforce, technology adoption",
+          "frequency": "irregular",
+          "geo": "US",
+          "search_terms": ["restaurant technology", "industry outlook", "tech adoption"]
+        }
+      ]
+    },
+    "pos_competitors": {
+      "label": "POS & Kassasystem",
+      "sources": [
+        {
+          "name": "Trivec / Caspeco",
+          "url": "https://trivec.com",
+          "focus": "Primary POS partner, product updates, integrations",
+          "frequency": "monitor",
+          "geo": "SE/EU",
+          "search_terms": ["Trivec", "Caspeco", "kassasystem", "POS integration"]
+        },
+        {
+          "name": "Toast (US POS)",
+          "url": "https://pos.toasttab.com/blog",
+          "focus": "Leading US restaurant POS, product launches, market moves",
+          "frequency": "weekly",
+          "geo": "US",
+          "search_terms": ["Toast POS", "restaurant platform", "AI features"]
+        },
+        {
+          "name": "Square for Restaurants",
+          "url": "https://squareup.com/restaurants",
+          "focus": "SMB POS, payment innovations, restaurant features",
+          "frequency": "irregular",
+          "geo": "US/Global",
+          "search_terms": ["Square restaurant", "POS innovation", "payment tech"]
+        },
+        {
+          "name": "Lightspeed",
+          "url": "https://www.lightspeedhq.com",
+          "focus": "Restaurant and retail POS, international expansion",
+          "frequency": "irregular",
+          "geo": "CA/EU/US",
+          "search_terms": ["Lightspeed restaurant", "POS analytics", "guest experience"]
+        },
+        {
+          "name": "Onslip",
+          "url": "https://onslip.com",
+          "focus": "Swedish cloud-based POS system, Trivec competitor",
+          "frequency": "irregular",
+          "geo": "SE",
+          "search_terms": ["Onslip", "kassasystem Sverige", "cloud POS"]
+        },
+        {
+          "name": "iZettle / Zettle by PayPal",
+          "url": "https://www.zettle.com",
+          "focus": "European mobile POS, small restaurant solutions",
+          "frequency": "irregular",
+          "geo": "SE/EU",
+          "search_terms": ["Zettle", "iZettle", "mobile POS"]
+        }
+      ]
+    },
+    "market_investment": {
+      "label": "Marknad & Investeringar",
+      "sources": [
+        {
+          "name": "Crunchbase News",
+          "url": "https://news.crunchbase.com",
+          "focus": "Startup funding, restaurant tech investments, foodtech deals",
+          "frequency": "daily",
+          "search_terms": ["foodtech funding", "restaurant tech investment", "AI startup funding"]
+        },
+        {
+          "name": "EU-Startups",
+          "url": "https://www.eu-startups.com",
+          "focus": "European startup ecosystem, funding, foodtech",
+          "frequency": "daily",
+          "geo": "EU",
+          "search_terms": ["foodtech Europe", "restaurant startup", "AI startup Europe"]
+        },
+        {
+          "name": "McKinsey - Restaurant Practice",
+          "url": "https://www.mckinsey.com/industries/retail/our-insights",
+          "focus": "Strategic analysis, personalization ROI, restaurant transformation",
+          "frequency": "monthly",
+          "search_terms": ["restaurant personalization", "hospitality AI", "dining experience"]
+        },
+        {
+          "name": "Deloitte - Restaurant Future",
+          "url": "https://www.deloitte.com/global/en/Industries/consumer.html",
+          "focus": "Consumer industry outlook, dining trends, tech adoption",
+          "frequency": "quarterly",
+          "search_terms": ["restaurant future", "consumer tech", "hospitality digital"]
+        },
+        {
+          "name": "CB Insights",
+          "url": "https://www.cbinsights.com",
+          "focus": "Market maps, AI landscape, foodtech analysis",
+          "frequency": "weekly",
+          "search_terms": ["restaurant tech market map", "foodtech AI", "voice AI market"]
+        }
+      ]
+    },
+    "taste_science": {
+      "label": "Smakvetenskap & Mat-Innovation",
+      "sources": [
+        {
+          "name": "Food Navigator",
+          "url": "https://www.foodnavigator.com",
+          "focus": "European food industry, ingredients, nutrition science",
+          "frequency": "daily",
+          "geo": "EU",
+          "search_terms": ["taste science", "flavor profiling", "food personalization"]
+        },
+        {
+          "name": "The Food Institute",
+          "url": "https://foodinstitute.com",
+          "focus": "Food industry analysis, consumer trends, market data",
+          "frequency": "daily",
+          "geo": "US",
+          "search_terms": ["consumer taste", "dining preference", "food trend"]
+        },
+        {
+          "name": "Flavour Journal (Springer)",
+          "url": "https://flavourjournal.biomedcentral.com",
+          "focus": "Academic research on flavor, taste perception, sensory science",
+          "frequency": "irregular",
+          "search_terms": ["taste perception", "flavor pairing", "sensory evaluation"]
+        },
+        {
+          "name": "Institute of Food Technologists (IFT)",
+          "url": "https://www.ift.org",
+          "focus": "Food science research, technology, innovation",
+          "frequency": "weekly",
+          "search_terms": ["food technology", "sensory science", "taste research"]
+        },
+        {
+          "name": "Tastewise",
+          "url": "https://www.tastewise.io/blog",
+          "focus": "AI food intelligence, consumer taste trends, menu analytics",
+          "frequency": "weekly",
+          "search_terms": ["food trend AI", "taste analytics", "menu intelligence"]
+        }
+      ]
+    },
+    "seo_painpoints": {
+      "label": "SEO, Trender & Smartpunkter",
+      "sources": [
+        {
+          "name": "Google Trends",
+          "url": "https://trends.google.com",
+          "focus": "Search trends for restaurant, hospitality, food queries",
+          "frequency": "real-time",
+          "search_terms": ["restaurant manager", "franchise owner", "POS system", "menu personalization"]
+        },
+        {
+          "name": "Reddit r/restaurantowners",
+          "url": "https://www.reddit.com/r/restaurantowners/",
+          "focus": "Restaurant owner discussions, pain points, tech questions",
+          "frequency": "daily",
+          "search_terms": ["POS", "AI", "marketing", "staff", "upselling"]
+        },
+        {
+          "name": "Reddit r/KitchenConfidential",
+          "url": "https://www.reddit.com/r/KitchenConfidential/",
+          "focus": "Kitchen staff perspectives, operational pain points",
+          "frequency": "daily",
+          "search_terms": ["technology", "management", "ordering system"]
+        },
+        {
+          "name": "Modern Restaurant Management",
+          "url": "https://modernrestaurantmanagement.com",
+          "focus": "Restaurant operations, technology, management best practices",
+          "frequency": "daily",
+          "geo": "US",
+          "search_terms": ["restaurant tech", "AI ordering", "staff management", "upselling"]
+        },
+        {
+          "name": "Hospitality Technology",
+          "url": "https://hospitalitytech.com",
+          "focus": "Technology solutions for hotels and restaurants",
+          "frequency": "daily",
+          "search_terms": ["hotel tech", "restaurant tech", "POS", "guest experience"]
+        }
+      ]
+    }
+  },
+  "total_source_count": 48,
+  "verification_status": "pending_agent_verification"
+}

@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flava Pulse — 25 mars 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap');
+
+    :root {
+      --bg: #F8F7F4;
+      --ink: #1A1919;
+      --ink-light: #6B6966;
+      --ink-faint: #A8A5A0;
+      --ink-whisper: #D4D1CC;
+      --hover-bg: #F3F1EB;
+      --active-bg: #EDEAE3;
+      --serif: 'Newsreader', 'Georgia', serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 17px; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection { background: #E0DDD8; }
+
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 120px 24px 160px;
+    }
+
+    /* ---- Masthead ---- */
+
+    .masthead { margin-bottom: 120px; }
+
+    .masthead-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 48px;
+    }
+
+    .masthead h1 {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+      margin-bottom: 24px;
+    }
+
+    .masthead-date {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--ink-faint);
+      letter-spacing: 0.3px;
+    }
+
+    /* ---- Lede ---- */
+
+    .lede { margin-bottom: 120px; }
+
+    .lede p {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--ink-light);
+    }
+
+    .lede p + p { margin-top: 16px; }
+
+    /* ---- Numbers ---- */
+
+    .numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-bottom: 120px;
+      border-top: 1px solid var(--ink-whisper);
+      border-bottom: 1px solid var(--ink-whisper);
+    }
+
+    .number-item { padding: 40px 0; }
+    .number-item:nth-child(odd) { padding-right: 40px; }
+    .number-item:nth-child(even) { padding-left: 40px; border-left: 1px solid var(--ink-whisper); }
+    .number-item:nth-child(n+3) { border-top: 1px solid var(--ink-whisper); }
+
+    .number-value {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .number-label {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--ink-light);
+      line-height: 1.5;
+    }
+
+    /* ---- Section ---- */
+
+    .section { margin-bottom: 100px; }
+
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 56px;
+    }
+
+    /* ---- Story ---- */
+
+    .story {
+      margin: 0 -32px;
+      padding: 32px 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.25s ease;
+      position: relative;
+    }
+
+    .story:hover {
+      background-color: var(--hover-bg);
+    }
+
+    .story:active {
+      background-color: var(--active-bg);
+    }
+
+    .story.open {
+      background-color: var(--hover-bg);
+    }
+
+    .story + .story {
+      margin-top: 8px;
+    }
+
+    .story-recency {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .story-headline {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.2px;
+    }
+
+    .story-summary {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--ink-light);
+    }
+
+    .story-expand-hint {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--ink-faint);
+      letter-spacing: 0.3px;
+      transition: color 0.2s ease;
+    }
+
+    .story:hover .story-expand-hint {
+      color: var(--ink-light);
+    }
+
+    .story-expand-hint svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .story.open .story-expand-hint svg {
+      transform: rotate(180deg);
+    }
+
+    .story.open .story-expand-label::after {
+      content: 'Dölj';
+    }
+
+    .story:not(.open) .story-expand-label::after {
+      content: 'Läs mer';
+    }
+
+    /* ---- Story Detail (expanded) ---- */
+
+    .story-body {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.35s ease 0.05s;
+    }
+
+    .story.open .story-body {
+      opacity: 1;
+      max-height: 3000px;
+    }
+
+    .story-body-inner {
+      padding-top: 28px;
+    }
+
+    .story-body p {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--ink-light);
+      margin-bottom: 16px;
+    }
+
+    .story-body p:last-of-type { margin-bottom: 0; }
+    .story-body strong { font-weight: 500; color: var(--ink); }
+
+    .story-relevance {
+      margin-top: 24px;
+      padding: 20px 0;
+      border-top: 1px solid var(--ink-whisper);
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--ink-light);
+    }
+
+    .story-relevance em {
+      font-style: normal;
+      font-weight: 500;
+      color: var(--ink);
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .story-sources {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .story-sources a {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--ink-faint);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .story-sources a:hover {
+      color: var(--ink-light);
+      border-bottom-color: var(--ink-light);
+    }
+
+    .story-sources span {
+      color: var(--ink-whisper);
+      margin: 0 10px;
+      font-size: 0.72rem;
+    }
+
+    /* ---- Section Divider ---- */
+
+    .section-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--ink-whisper);
+      margin: 0 0 0 32px;
+    }
+
+    /* ---- Colophon ---- */
+
+    .colophon {
+      margin-top: 120px;
+      padding-top: 48px;
+      border-top: 1px solid var(--ink-whisper);
+    }
+
+    .colophon p {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--ink-faint);
+      line-height: 1.8;
+    }
+
+    .colophon-sources { margin-top: 40px; }
+
+    .colophon-sources h3 {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 20px;
+    }
+
+    .colophon-group { margin-bottom: 20px; }
+
+    .colophon-group h4 {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      margin-bottom: 8px;
+    }
+
+    .colophon-group a {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      color: var(--ink-faint);
+      text-decoration: none;
+      line-height: 2.2;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .colophon-group a:hover {
+      color: var(--ink-light);
+      border-bottom-color: var(--ink-light);
+    }
+
+    .colophon-group .sep {
+      color: var(--ink-whisper);
+      margin: 0 8px;
+      font-size: 0.68rem;
+    }
+
+    .colophon-mark {
+      margin-top: 56px;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      color: var(--ink-whisper);
+    }
+
+    /* ---- Responsive ---- */
+
+    @media (max-width: 600px) {
+      html { font-size: 16px; }
+      .page { padding: 80px 20px 120px; }
+      .masthead { margin-bottom: 80px; }
+      .masthead h1 { font-size: 2.1rem; }
+      .lede { margin-bottom: 80px; }
+      .numbers { grid-template-columns: 1fr; }
+      .number-item:nth-child(even) { padding-left: 0; border-left: none; border-top: 1px solid var(--ink-whisper); }
+      .section { margin-bottom: 72px; }
+      .story { margin: 0 -20px; padding: 24px 20px; }
+      .section-divider { margin-left: 20px; }
+    }
+
+    /* ---- Share Panel ---- */
+
+    .share-btn {
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: var(--ink-whisper);
+      border-radius: 6px;
+      transition: color 0.2s, background-color 0.2s;
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .story:hover .share-btn,
+    .story.open .share-btn {
+      opacity: 1;
+    }
+
+    .share-btn:hover {
+      color: var(--ink-light);
+      background: var(--active-bg);
+    }
+
+    .share-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .share-panel {
+      display: none;
+      position: absolute;
+      top: 64px;
+      right: 32px;
+      background: #FFFFFF;
+      border: 1px solid var(--ink-whisper);
+      border-radius: 10px;
+      padding: 16px 20px;
+      z-index: 10;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      min-width: 200px;
+    }
+
+    .share-panel.visible { display: block; }
+
+    .share-panel-title {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 12px;
+    }
+
+    .share-panel a,
+    .share-panel button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 12px;
+      margin: 0 -12px;
+      border: none;
+      background: none;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.15s;
+      box-sizing: content-box;
+      width: calc(100% - 0px);
+      margin: 0;
+    }
+
+    .share-panel a:hover,
+    .share-panel button:hover {
+      background: var(--hover-bg);
+    }
+
+    .share-panel .share-icon {
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+    }
+
+    .share-panel .share-divider {
+      height: 1px;
+      background: var(--ink-whisper);
+      margin: 8px 0;
+    }
+
+    .copy-toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--ink);
+      color: var(--bg);
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 8px;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .copy-toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      .share-btn { top: 24px; right: 20px; opacity: 1; }
+      .share-panel { right: 20px; top: 56px; }
+    }
+
+    @media print {
+      body { background: white; }
+      .page { padding: 40px 0; max-width: 100%; }
+      .story-body { max-height: none !important; opacity: 1 !important; }
+      .story-expand-hint { display: none; }
+      .story { background: none !important; cursor: default; }
+      .share-btn, .share-panel { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="masthead">
+      <div class="masthead-label">Flava Pulse</div>
+      <h1>Röst-AI passerar kritisk gräns,<br>HeyGen byter arkitektur</h1>
+      <div class="masthead-date">25 mars 2026 · Utgåva 01</div>
+    </header>
+
+    <section class="lede">
+      <p>HeyGen stänger Interactive Avatar om 6 dagar. ElevenLabs släpper röstteknik med känslomässigt djup. Amerikanska restauranggäster spenderar 22% mindre än för 9 månader sedan. Samtidigt: 97% av restaurangoperatörer skärper fokus på gästupplevelsen.</p>
+      <p>Veckan i korthet, filtrerat för Flava.</p>
+    </section>
+
+    <section class="numbers">
+      <div class="number-item">
+        <div class="number-value">50%</div>
+        <div class="number-label">av USA:s drive-thru-ordrar kan vara AI-hanterade i slutet av 2026</div>
+      </div>
+      <div class="number-item" style="background-color:#F5EDD9;">
+        <div class="number-value">68%</div>
+        <div class="number-label">av amerikanska konsumenter har skurit ner på restaurangbesök</div>
+      </div>
+      <div class="number-item" style="background-color:#F5EDD9;">
+        <div class="number-value">$95M</div>
+        <div class="number-label">HeyGens årsintäkt. G2:s snabbast växande produkt.</div>
+      </div>
+      <div class="number-item" style="background-color:#F0E3C8;">
+        <div class="number-value">97%</div>
+        <div class="number-label">av restaurangoperatörer skärper fokus på gästupplevelsen 2026</div>
+      </div>
+    </section>
+
+    <!-- ===== TECH & AI ===== -->
+
+    <section class="section">
+      <div class="section-label">Tech & AI</div>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Denna vecka</span>
+        <h2 class="story-headline">ElevenLabs lanserar 11.ai och Eleven v3 med emotionell röst</h2>
+        <p class="story-summary">Röstassistenten 11.ai hanterar arbetsflöden via röst med MCP-protokollet. Den nya v3-modellen ger rösterna känslomässigt djup som inte funnits tidigare.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p>ElevenLabs har släppt två produkter som förändrar spelplanen. <strong>11.ai</strong> är en röstassistent som inte bara svarar på frågor, utan hanterar hela arbetsflöden. Den använder Model Context Protocol (MCP) och behåller kontext över uppgifter. Du kan byta ämne, komma tillbaka till något tidigare, och den hänger med.</p>
+            <p><strong>Eleven v3</strong> är deras nya röstmodell. Den stora skillnaden: rösterna låter känslomässigt rika. Inte robotaktiga, utan med tvekan, värme och tonfall som förändras beroende på sammanhanget. Modellen driver redan deras Conversational AI-infrastruktur.</p>
+            <p>ElevenLabs premiärvisade också <strong>11 Voices</strong>, en dokumentärserie i 11 delar, på SXSW i Austin den 11 mars. Varje avsnitt följer en person som använt tekniken för att återfinna sin röst.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Eleven v3 är en direkt uppgradering för Flavas röstinteraktion. Emotionellt djup i serveringsförslag gör upplevelsen mer trovärdig. MCP-stödet i 11.ai öppnar för automation i Flavas backend.
+            </div>
+            <div class="story-sources">
+              <a href="https://elevenlabs.io/" target="_blank" rel="noopener">ElevenLabs</a>
+              <span>/</span>
+              <a href="https://voice.ai/hub/ai-voice-agents/elevenlabs-news-today/" target="_blank" rel="noopener">Voice.ai</a>
+              <span>/</span>
+              <a href="https://elevenlabs.io/blog/how-to-create-ai-characters-with-heygen-avatar-iv-and-elevenlabs-voice-changer" target="_blank" rel="noopener">ElevenLabs Blog</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Denna vecka</span>
+        <h2 class="story-headline">Röst-AI-marknaden för restauranger blir trångt</h2>
+        <p class="story-summary">Etablerade aktörer som SoundHound och ConverseNow får sällskap av en våg nystartade bolag. Inträdesbarriärerna sjunker tack vare LLM-framsteg.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p>För två år sedan dominerades marknaden av Presto, Hi Auto, ConverseNow och SoundHound. Nu dyker nya aktörer upp varje kvartal: <strong>Vox</strong> (grundat 2023), <strong>Loman</strong> (drygt ett år gammalt), <strong>Incept AI</strong>, <strong>Palona AI</strong>, <strong>Maple</strong> och <strong>Revmo.ai</strong>.</p>
+            <p>Orsaken är enkel: LLM:er har sänkt kostnaderna för att bygga en fungerande röstbot. Det som tidigare krävde miljoner i R&D går nu att prototypa på veckor. Maple har redan integrerat med Shift4:s SkyTab POS för AI-telefonbeställningar.</p>
+            <p>Samtidigt expanderar <strong>SoundHound</strong> bortom drive-thru till samtal, SMS och beställning från bilen. De har avtal med White Castle, Jersey Mike's, Five Guys, Noodles & Company och Chipotle.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Flava befinner sig i ett annat segment (in-dining, smakprofiler) men den snabbt växande röst-AI-marknaden validerar affärsmodellen. Risken är att en POS-leverantör bygger en enklare variant som upplevs som "good enough".
+            </div>
+            <div class="story-sources">
+              <a href="https://www.restaurantbusinessonline.com/technology/restaurant-voice-ai-market-getting-crowded" target="_blank" rel="noopener">Restaurant Business</a>
+              <span>/</span>
+              <a href="https://lasvegassun.com/news/2026/mar/16/maple-partners-with-shift4-to-bring-ai-phone-order/" target="_blank" rel="noopener">Las Vegas Sun</a>
+              <span>/</span>
+              <a href="https://www.nrn.com/restaurant-technology/tech-tracker-ai-chatbots-are-the-next-frontier-in-restaurant-technology" target="_blank" rel="noopener">NRN</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Idag</span>
+        <h2 class="story-headline">Swiggy lanserar flerspråkig röstbeställning i Indien</h2>
+        <p class="story-summary">Indiens största matleveransapp inför röstledd beställning på lokala språk via Sarvam AI. Validerar att flerspråkig röst-AI fungerar i skala.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p>Swiggy rullar ut röstbaserad beställning på indiska språk över hela sin plattform: matleverans, Instamart (snabbhandel) och Dineout (restaurangbokning). Tekniken kommer från <strong>Sarvam AI</strong>, specialiserat på flerspråkig taligenkänning.</p>
+            <p>När marknader med hundratals miljoner användare börjar adoptera tekniken accelererar hela ekosystemets mognad.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Validerar att flerspråkig röst-AI fungerar i skala. Flavas planerade stöd för svenska, engelska och nordiska språk ligger i linje med den globala rörelsen.
+            </div>
+            <div class="story-sources">
+              <a href="https://www.indiatvnews.com/technology/news/swiggy-partners-with-sarvam-ai-brings-voice-based-ordering-in-indian-languages-2026-03-25-1035064" target="_blank" rel="noopener">India TV News</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== RESTAURANG ===== -->
+
+    <section class="section">
+      <div class="section-label">Restaurang & Hospitality</div>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Denna vecka</span>
+        <h2 class="story-headline">68% av amerikanska konsumenter har skurit ner på restaurangbesök</h2>
+        <p class="story-summary">Snittkonsumenten spenderar $90 per vecka på restauranger. För 9 månader sedan: $115. Priskänsligheten är historiskt hög.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p>Popmenus senaste rapport visar att <strong>68% av amerikanska konsumenter</strong> säger att de skurit ner på restaurangbesök 2026. Genomsnittsutgiften landade på <strong>$90 per vecka</strong> i februari, jämfört med $115 i juni 2025.</p>
+            <p>Som svar skärper <strong>97% av restaurangoperatörerna</strong> sitt fokus på gästupplevelsen. De justerar prissättning, menyer, marknadsföring, teknik och drift. Varje besök måste vara värt pengarna.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              När varje gäst räknas ökar värdet av personalisering. En smakprofilbaserad menyguide som höjer snittnoten med 10-15% är exakt vad pressade operatörer behöver.
+            </div>
+            <div class="story-sources">
+              <a href="https://get.popmenu.com/toolkit/2026-trends-report" target="_blank" rel="noopener">Popmenu 2026 Report</a>
+              <span>/</span>
+              <a href="https://www.qsrmagazine.com/story/restaurant-trends-for-2026-hospitality-reenters-the-innovation-cycle/" target="_blank" rel="noopener">QSR Magazine</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Denna månad</span>
+        <h2 class="story-headline">Svensk restaurangbransch 2026: digitalisering, upplevelse, hållbarhet</h2>
+        <p class="story-summary">Menigos trendrapport pekar på AI-driven lagerhantering, premiumveganskt och gästupplevelser där atmosfär är lika viktig som maten.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p>Menigos årliga trendrapport lyfter <strong>6 starka trender</strong> för den svenska restaurangbranschen 2026. Hållbarhet är fortfarande centralt, med lokala och säsongsbaserade råvaror. Växtbaserat har flyttat från nisch till premiumsegmentet.</p>
+            <p>Digitaliseringsspåret: <strong>AI används nu för att optimera lagerhantering, förutse inköp och minimera matsvinn.</strong> Robotar tar över rutinuppgifter i köket. Restaurangbesök blir allt mer upplevelsebaserade, där atmosfär, storytelling och design är lika viktiga som själva maten.</p>
+            <p>Frantzéns grupp öppnar <strong>Emberlin</strong> på Stureplan, ett modernt grillhus med öppen eld. Pontus Frithiof öppnar <strong>La Girafe</strong> i Uppsala.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Upplevelsetrenden spelar rakt in i Flavas händer. En digital servitör som känner gästens smakprofil är precis den typ av "atmosfärförstärkare" branschen söker.
+            </div>
+            <div class="story-sources">
+              <a href="https://www.menigo.se/inspireras/trender/restaurangbranschen-2026" target="_blank" rel="noopener">Menigo</a>
+              <span>/</span>
+              <a href="https://www.orklafoodsolutions.se/trend-update-2026-framtidens-menyer/" target="_blank" rel="noopener">Orkla FoodSolutions</a>
+              <span>/</span>
+              <a href="https://www.falstaff.com/nordics/news/falstaff-restaurant-bistro-guide-2026-special-awards-sweden" target="_blank" rel="noopener">Falstaff Nordic</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Nästa vecka</span>
+        <h2 class="story-headline">Hospitality Tech360 i London samlar PizzaExpress, Honest Burgers</h2>
+        <p class="story-summary">Storbritanniens största hospitality-techmässa går av stapeln 30 mars på Excel London. Fokus: digital strategi, AI-verktyg, cloud-first POS.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p><strong>Hospitality Tech360</strong> på Excel London (30 mars till 1 april) samlar restaurangledare från Pizza Pilgrims, Honest Burgers, PizzaExpress och fler.</p>
+            <p>Brittisk hospitality genomgår samma skifte som resten av Europa: <strong>molnbaserade system med API-first-arkitektur</strong> ersätter isolerade lösningar. Gästdata samlas i enhetliga profiler för personalisering och lojalitet.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              London-marknaden validerar samma trender Flava bygger för. API-first och enhetliga gästprofiler är exakt Flavas arkitektur.
+            </div>
+            <div class="story-sources">
+              <a href="https://restauranttechnologynews.com/2026/02/hospitality-tech360-2026-to-feature-restaurant-leaders-from-pizza-pilgrims-honest-burgers-pizzaexpress-and-more/" target="_blank" rel="noopener">Restaurant Technology News</a>
+              <span>/</span>
+              <a href="https://www.thecaterer.com/indepth/hrc-2026-where-hospitality-does-business" target="_blank" rel="noopener">The Caterer</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== SMAK & PREFERENS ===== -->
+
+    <section class="section">
+      <div class="section-label">Smak & Preferens</div>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Denna månad</span>
+        <h2 class="story-headline">AI bygger dynamiska smakprofiler som uppdateras i realtid</h2>
+        <p class="story-summary">System känner nu igen mönster: kryddigt på kvällen, lätt på lunchen, comfort food på helgen. Profilerna är levande, inte statiska.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p>Teknikens frontlinje inom matpersonalisering har flyttat från "vad gillar du?" till "vad vill du just nu?". AI-system analyserar nu <strong>surfbeteende, kostpreferenser, allergiinformation, plats och väder</strong> för att ge rekommendationer.</p>
+            <p>Profilerna är <strong>dynamiska</strong>. Systemet märker att du väljer kryddigt på kvällen, lätt på lunchen och comfort food på helger. Varje interaktion justerar profilen.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Flavas 7-dimensionella smakprofil är mer sofistikerad än de flesta implementationer på marknaden. Utmaningen är att gå från POC till produktion med samma djup.
+            </div>
+            <div class="story-sources">
+              <a href="https://ai4lifecoach.com/ai-food-preference-prediction-recommend-foods/" target="_blank" rel="noopener">AI4LifeCoach</a>
+              <span>/</span>
+              <a href="https://dataforest.ai/blog/ai-in-food-and-beverage-personalized-dining-experiences" target="_blank" rel="noopener">DataForest</a>
+              <span>/</span>
+              <a href="https://tastewise.io/blog/food-ai" target="_blank" rel="noopener">Tastewise</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Denna månad</span>
+        <h2 class="story-headline">15% av Gen Z använder AI-chatbotar för att hitta mat</h2>
+        <p class="story-summary">SPINS 2026-rapport visar att unga konsumenter börjar använda AI som matrådgivare. 11% säger att chatbotar är deras första stopp för produktupptäckt.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p>SPINS 2026-rapport visar att <strong>Gen Z och millennials i allt högre grad vänder sig till AI</strong> för att få matråd. 15% använder AI för att undersöka produkter, 11% säger att AI-chatbotar är deras första val för att upptäcka nya matprodukter.</p>
+            <p>Trenden är del av en bredare rörelse mot <strong>funktionellt ätande</strong>, där konsumenter väljer mat baserat på specifika hälsomål snarare än bara smak.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Flavas digitala servitör är exakt den typ av AI-matrådgivare som Gen Z börjar söka. Denna beteendeförändring är grunden för Flavas konsumentadoption.
+            </div>
+            <div class="story-sources">
+              <a href="https://www.foodnavigator-usa.com/Article/2026/01/21/spins-2026-food-trends-tech-personalization-and-functional-eating/" target="_blank" rel="noopener">FoodNavigator USA</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">10 mars</span>
+        <h2 class="story-headline">EU lanserar TraceMap för livsmedelssäkerhet</h2>
+        <p class="story-summary">EU-kommissionen inför AI-verktyg för att spåra matfusk, kontaminering och snabba återkallelser. Allergenkraven skärps.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p>EU-kommissionen lanserade <strong>TraceMap</strong> den 10 mars. Plattformen låter nationella myndigheter upptäcka matfusk, spåra kontaminering och snabba på produktåterkallelser.</p>
+            <p>Samtidigt driver <strong>EU-förordning 1169/2011</strong> fortsatt krav på att restauranger deklarerar 14 huvudallergener. Fel i processen kan leda till böter och rykteskador.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Regleringstrycket ökar värdet av Flavas allergenhantering. En AI som aldrig lovar "allergenfritt" utan data, med full spårbarhet, är en compliance-fördel.
+            </div>
+            <div class="story-sources">
+              <a href="https://www.euronews.com/health/2026/03/10/the-european-union-launches-new-ai-tool-to-boost-food-safety-controls" target="_blank" rel="noopener">Euronews</a>
+              <span>/</span>
+              <a href="https://www.galleysolutions.com/blog/technology-can-help-navigate-allergen-laws-in-both-us-and-eu" target="_blank" rel="noopener">Galley Solutions</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== AVATAR & REALTID ===== -->
+
+    <section class="section">
+      <div class="section-label">Avatar & Realtid</div>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">6 dagar kvar</span>
+        <h2 class="story-headline">HeyGen stänger Interactive Avatar den 31 mars</h2>
+        <p class="story-summary">LiveAvatar tar över. Flavas nuvarande avatarintegration måste migreras. Samma Avatar IV-kvalitet, ny SDK-arkitektur.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p><strong>Kritiskt:</strong> HeyGen stänger Interactive Avatar den 31 mars 2026 och ersätter med <strong>LiveAvatar</strong>. Migrering krävs inom 6 dagar.</p>
+            <p>LiveAvatar använder samma Avatar IV-motor, så visuell kvalitet och läppsynk bevaras. Skillnaden är en ny SDK-arkitektur. HeyGen har också introducerat stöd för <strong>ElevenLabs V3 Voice Model</strong> i sitt API.</p>
+            <p>HeyGen rapporterar <strong>$95M ARR</strong> och är G2:s snabbast växande produkt. Det ger trygghet kring plattformens långsiktiga överlevnad.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Direkt åtgärd krävs. Flavas HeyGen Realtime-integration måste migreras till LiveAvatar SDK innan 31 mars. Positivt: ElevenLabs V3-stöd förenklar röstintegrationen.
+            </div>
+            <div class="story-sources">
+              <a href="https://docs.heygen.com/changelog" target="_blank" rel="noopener">HeyGen Changelog</a>
+              <span>/</span>
+              <a href="https://docs.heygen.com/docs/streaming-avatar-sdk" target="_blank" rel="noopener">HeyGen SDK Docs</a>
+              <span>/</span>
+              <a href="https://aloa.co/ai/comparisons/ai-video-comparison/heygen-vs-d-id" target="_blank" rel="noopener">Aloa</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Q1 2026</span>
+        <h2 class="story-headline">D-ID pivoterar till AI Agents 2.0</h2>
+        <p class="story-summary">D-ID är inte längre en videogenerator. AI Agents 2.0 är autonoma konversationsagenter för webb, app och kiosker. CES 2026 Innovation Award.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p>D-ID har genomgått en strategisk transformation från videoverktyg till <strong>konversations-AI-plattform</strong>. AI Agents 2.0 är autonoma digitala assistenter som opererar dygnet runt.</p>
+            <p>Agenterna kan distribueras på webbplatser, mobilappar och kiosker med <strong>anpassningsbart utseende, röst, personlighet och kunskapsbas</strong>. En D-ID-agent på en kiosk är en potentiell Flava-konkurrent, även om den saknar smakprofilering.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              D-ID:s pivot gör dem till en potentiell konkurrent i restaurangsegmentet. Deras generiska plattform saknar dock smak-DNA och POS-integration.
+            </div>
+            <div class="story-sources">
+              <a href="https://aloa.co/ai/comparisons/ai-video-comparison/heygen-vs-d-id" target="_blank" rel="noopener">Aloa</a>
+              <span>/</span>
+              <a href="https://www.synthesia.io/post/best-d-id-alternatives" target="_blank" rel="noopener">Synthesia</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== MARKNAD ===== -->
+
+    <section class="section">
+      <div class="section-label">Marknad & Konkurrenter</div>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Bakgrund</span>
+        <h2 class="story-headline">Trivec fullt integrerat i Caspeco</h2>
+        <p class="story-summary">Sammanslagningen är klar. Kassa, bemanning, bokning och analys i ett system. 6 500+ restauranger i Sverige, Frankrike, Belgien och Nederländerna.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p>Sammanslagningen från 2025 är fullt realiserad. <strong>Trivec by Caspeco</strong> erbjuder en komplett plattform: försäljningsdata, scheman, tidrapportering, lönedata och dricksfördelning på ett ställe.</p>
+            <p>Produkten inkluderar stationära och mobila kassor, QR-beställning och betalning, kiosk, digitala köksdisplayer och Westpay-kortterminaler. Närvaro: Sverige, Frankrike, Belgien, Nederländerna.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Caspecos QR-baserade beställningsflöde är en naturlig inkopplingspunkt för Flava. Integrationen är 40% av MVP-scopet.
+            </div>
+            <div class="story-sources">
+              <a href="https://trivecgroup.com/resources/articles/trivec-caspeco/" target="_blank" rel="noopener">Trivec Group</a>
+              <span>/</span>
+              <a href="https://businesswith.se/jamfor-system/trivec-vs-caspeco/" target="_blank" rel="noopener">BusinessWith</a>
+              <span>/</span>
+              <a href="https://caspeco.com/en/caspeco-acquires-trivec/" target="_blank" rel="noopener">Caspeco</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">16 mars</span>
+        <h2 class="story-headline">Choice tar in $7,1M för europeiskt restaurang-OS</h2>
+        <p class="story-summary">Prag-grundade SaaS-plattformen konsoliderar beställning, betalning och bokning. 1,5 miljoner ordrar per månad i 9 länder.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p><strong>Choice</strong>, grundat i Prag, stängde sin Series A på $7,1M den 16 mars. Plattformen konsoliderar beställning, betalningar, reservationer och marknadsplatsintegrationer.</p>
+            <p><strong>1,5 miljoner ordrar per månad</strong> över 9 centraleuropeiska marknader. Kapitalet går till AI-moduler och försäljningsexpansion över Europa.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Choice är en potentiell konkurrent i det europeiska restaurang-OS-segmentet, men saknar smakprofilering och avatar-teknik. De kan också bli en POS-partner.
+            </div>
+            <div class="story-sources">
+              <a href="https://tech.eu/2026/03/16/choice-secures-71m-series-a-to-expand-its-restaurant-operating-system-across-europe/" target="_blank" rel="noopener">Tech.eu</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Q1 2026</span>
+        <h2 class="story-headline">Dynamic Yield Gartner Leader för åttonde året</h2>
+        <p class="story-summary">Mastercards personaliseringsmotor dominerar med 400+ varumärken. Saknar röst och avatar, men har skala och data.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p>Mastercard Dynamic Yield nämns som <strong>Leader i Gartner Magic Quadrant for Personalization Engines 2026</strong>, för åttonde året i rad. 400+ varumärken med individualiserade rekommendationer.</p>
+            <p>För restauranger: tekniken anpassar drive-thru-menyer baserat på tid, väder, trafik och trendande rätter.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Dynamic Yield är den närmaste jätte-konkurrenten, men saknar röst, avatar och djup smakprofilering. Deras styrka är skala och data, inte gästinteraktion.
+            </div>
+            <div class="story-sources">
+              <a href="https://www.dynamicyield.com/blog/mastercard-dynamic-yield-recognized-as-a-leader-in-the-2026-gartner-magic-quadrant-for-personalization-engines/" target="_blank" rel="noopener">Dynamic Yield</a>
+              <span>/</span>
+              <a href="https://www.mastercardservices.com/en/capabilities/dynamic-yield" target="_blank" rel="noopener">Mastercard</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== TRENDER ===== -->
+
+    <section class="section">
+      <div class="section-label">Trender & Möjligheter</div>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Denna vecka</span>
+        <h2 class="story-headline">Taco Bells röst-AI hanterar miljontals ordrar</h2>
+        <p class="story-summary">8 sekunder snabbare per order. McDonald's satsar igen efter att ha lagt ner IBM-samarbetet 2024. Branschprognos: 50% AI-hanterat i slutet av året.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p><strong>Taco Bell</strong> visar att det fungerar: röst-AI processar nu <strong>miljontals beställningar över hundratals lokaler</strong>, med 8 sekunder snabbare per order via SoundHound.</p>
+            <p><strong>McDonald's</strong> la ner sitt IBM-samarbete i juni 2024 på grund av precision och tillförlitlighetsproblem. Men de satsar igen 2026.</p>
+            <p>Branschprognosen: <strong>50% av amerikanska drive-thru-ordrar kan vara AI-hanterade i slutet av 2026.</strong></p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Drive-thru är inte Flavas segment, men den massiva valideringen av röst-AI i restaurangmiljö gör det lättare att sälja in konceptet: "Taco Bell gör det i drive-thru, vi gör det vid bordet."
+            </div>
+            <div class="story-sources">
+              <a href="https://www.nrn.com/quick-service/taco-bell-is-expanding-its-drive-thru-voice-ai-test" target="_blank" rel="noopener">NRN</a>
+              <span>/</span>
+              <a href="https://www.thestreet.com/restaurants/mcdonalds-bets-on-ai-in-2026-to-fix-a-major-problem" target="_blank" rel="noopener">TheStreet</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Denna månad</span>
+        <h2 class="story-headline">Adoption, inte funktioner, är den verkliga barriären</h2>
+        <p class="story-summary">Restaurangledare känner till AI-verktyg men saknar klarhet om hur de ska användas. Gapet är ledarskap, inte teknik.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p><strong>"Adoption, inte funktioner, är den verkliga barriären för teknikframgång."</strong> Varje chef känner att organisationen "gör okej" med AI, men ingen uttrycker stark tillit.</p>
+            <p>Det svåraste är inte att välja mjukvaran. Det är att få teamet att använda den konsekvent. 41% av fullserviceoperatörer anger lönsamhet som sitt första affärsmål.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Flavas QR-baserade, nollinstallationsmodell är designad för att lösa adoptionsproblemet. Gästen behöver inte lära sig något. Personalen behöver inte göra mer.
+            </div>
+            <div class="story-sources">
+              <a href="https://modernrestaurantmanagement.com/2026-outlook-experts-discuss-restaurant-trends-and-challenges-part-three/" target="_blank" rel="noopener">Modern Restaurant Management</a>
+              <span>/</span>
+              <a href="https://www.wraysearch.com/restaurant-hospitality-franchise-foodservice-insights/what-restaurant-leaders-are-watching-closely-in-2026" target="_blank" rel="noopener">Wray Executive Search</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story" role="button" tabindex="0" aria-expanded="false">
+        <button class="share-btn" aria-label="Dela" title="Dela med AI">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+        </button>
+        <span class="story-recency">Denna månad</span>
+        <h2 class="story-headline">QR-beställning är standard: 57% ökar investeringarna</h2>
+        <p class="story-summary">59% av smartphoneanvändare skannar QR-koder dagligen. Men plattformar som Mr Yum saknar POS-integration.</p>
+        <div class="story-expand-hint">
+          <span class="story-expand-label"></span>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5L6 7.5L9 4.5"/></svg>
+        </div>
+        <div class="story-body">
+          <div class="story-body-inner">
+            <p>QR-beställning har gått från pandemilosning till standardinfrastruktur. <strong>57% av företag ökar sina QR-investeringar 2026</strong>, och 59% av smartphoneanvändare skannar dagligen.</p>
+            <p>Men integrationsproblemen kvarstår. Plattformar som Mr Yum och Meandu <strong>saknar POS-integration</strong>. Beställningar kräver ofta manuell återinmatning.</p>
+            <div class="story-relevance">
+              <em>Relevant för Flava</em>
+              Flavas Caspeco-integration löser precis det POS-integrationsgap som plågar QR-plattformarna. QR är inkopplingspunkten, Flava lägger till intelligens genom smakprofilering.
+            </div>
+            <div class="story-sources">
+              <a href="https://sundayapp.com/qr-code-ordering-from-trend-to-standard-in-2025/" target="_blank" rel="noopener">Sunday</a>
+              <span>/</span>
+              <a href="https://www.supercode.com/blog/qr-codes-for-restaurants" target="_blank" rel="noopener">Supercode</a>
+              <span>/</span>
+              <a href="https://www.mryum.com/blog/benefits-to-setting-up-qr-code-menus" target="_blank" rel="noopener">Mr Yum</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== COLOPHON ===== -->
+
+    <footer class="colophon">
+      <p>Flava Pulse sammanställs från 48+ källor med realtidssökningar. Varje artikel är verifierad mot minst 2 oberoende källor där det är möjligt.</p>
+
+      <div class="colophon-sources">
+        <h3>Samtliga källor</h3>
+
+        <div class="colophon-group">
+          <h4>Tech & AI</h4>
+          <a href="https://elevenlabs.io/" target="_blank" rel="noopener">ElevenLabs</a><span class="sep">/</span><a href="https://voice.ai/hub/ai-voice-agents/elevenlabs-news-today/" target="_blank" rel="noopener">Voice.ai</a><span class="sep">/</span><a href="https://www.restaurantbusinessonline.com/technology/restaurant-voice-ai-market-getting-crowded" target="_blank" rel="noopener">Restaurant Business</a><span class="sep">/</span><a href="https://www.nrn.com/restaurant-technology/tech-tracker-ai-chatbots-are-the-next-frontier-in-restaurant-technology" target="_blank" rel="noopener">NRN</a><span class="sep">/</span><a href="https://lasvegassun.com/news/2026/mar/16/maple-partners-with-shift4-to-bring-ai-phone-order/" target="_blank" rel="noopener">Las Vegas Sun</a><span class="sep">/</span><a href="https://www.indiatvnews.com/technology/news/swiggy-partners-with-sarvam-ai-brings-voice-based-ordering-in-indian-languages-2026-03-25-1035064" target="_blank" rel="noopener">India TV News</a>
+        </div>
+
+        <div class="colophon-group">
+          <h4>Restaurang & Hospitality</h4>
+          <a href="https://get.popmenu.com/toolkit/2026-trends-report" target="_blank" rel="noopener">Popmenu</a><span class="sep">/</span><a href="https://www.qsrmagazine.com/story/restaurant-trends-for-2026-hospitality-reenters-the-innovation-cycle/" target="_blank" rel="noopener">QSR Magazine</a><span class="sep">/</span><a href="https://www.menigo.se/inspireras/trender/restaurangbranschen-2026" target="_blank" rel="noopener">Menigo</a><span class="sep">/</span><a href="https://www.orklafoodsolutions.se/trend-update-2026-framtidens-menyer/" target="_blank" rel="noopener">Orkla</a><span class="sep">/</span><a href="https://restauranttechnologynews.com/2026/02/hospitality-tech360-2026-to-feature-restaurant-leaders-from-pizza-pilgrims-honest-burgers-pizzaexpress-and-more/" target="_blank" rel="noopener">RTN</a><span class="sep">/</span><a href="https://www.thecaterer.com/indepth/hrc-2026-where-hospitality-does-business" target="_blank" rel="noopener">The Caterer</a>
+        </div>
+
+        <div class="colophon-group">
+          <h4>Smak & Preferens</h4>
+          <a href="https://ai4lifecoach.com/ai-food-preference-prediction-recommend-foods/" target="_blank" rel="noopener">AI4LifeCoach</a><span class="sep">/</span><a href="https://dataforest.ai/blog/ai-in-food-and-beverage-personalized-dining-experiences" target="_blank" rel="noopener">DataForest</a><span class="sep">/</span><a href="https://tastewise.io/blog/food-ai" target="_blank" rel="noopener">Tastewise</a><span class="sep">/</span><a href="https://www.foodnavigator-usa.com/Article/2026/01/21/spins-2026-food-trends-tech-personalization-and-functional-eating/" target="_blank" rel="noopener">FoodNavigator</a><span class="sep">/</span><a href="https://www.euronews.com/health/2026/03/10/the-european-union-launches-new-ai-tool-to-boost-food-safety-controls" target="_blank" rel="noopener">Euronews</a>
+        </div>
+
+        <div class="colophon-group">
+          <h4>Avatar & Realtid</h4>
+          <a href="https://docs.heygen.com/changelog" target="_blank" rel="noopener">HeyGen Changelog</a><span class="sep">/</span><a href="https://docs.heygen.com/docs/streaming-avatar-sdk" target="_blank" rel="noopener">HeyGen SDK</a><span class="sep">/</span><a href="https://aloa.co/ai/comparisons/ai-video-comparison/heygen-vs-d-id" target="_blank" rel="noopener">Aloa</a><span class="sep">/</span><a href="https://www.synthesia.io/post/best-d-id-alternatives" target="_blank" rel="noopener">Synthesia</a>
+        </div>
+
+        <div class="colophon-group">
+          <h4>Marknad & Konkurrenter</h4>
+          <a href="https://trivecgroup.com/resources/articles/trivec-caspeco/" target="_blank" rel="noopener">Trivec Group</a><span class="sep">/</span><a href="https://businesswith.se/jamfor-system/trivec-vs-caspeco/" target="_blank" rel="noopener">BusinessWith</a><span class="sep">/</span><a href="https://tech.eu/2026/03/16/choice-secures-71m-series-a-to-expand-its-restaurant-operating-system-across-europe/" target="_blank" rel="noopener">Tech.eu</a><span class="sep">/</span><a href="https://www.dynamicyield.com/blog/mastercard-dynamic-yield-recognized-as-a-leader-in-the-2026-gartner-magic-quadrant-for-personalization-engines/" target="_blank" rel="noopener">Dynamic Yield</a>
+        </div>
+
+        <div class="colophon-group">
+          <h4>Trender</h4>
+          <a href="https://www.nrn.com/quick-service/taco-bell-is-expanding-its-drive-thru-voice-ai-test" target="_blank" rel="noopener">NRN</a><span class="sep">/</span><a href="https://www.thestreet.com/restaurants/mcdonalds-bets-on-ai-in-2026-to-fix-a-major-problem" target="_blank" rel="noopener">TheStreet</a><span class="sep">/</span><a href="https://modernrestaurantmanagement.com/2026-outlook-experts-discuss-restaurant-trends-and-challenges-part-three/" target="_blank" rel="noopener">MRM</a><span class="sep">/</span><a href="https://sundayapp.com/qr-code-ordering-from-trend-to-standard-in-2025/" target="_blank" rel="noopener">Sunday</a><span class="sep">/</span><a href="https://www.supercode.com/blog/qr-codes-for-restaurants" target="_blank" rel="noopener">Supercode</a>
+        </div>
+      </div>
+
+      <div class="colophon-mark">&copy; 2026 Flava &middot; Preference Intelligence</div>
+    </footer>
+
+  </div>
+
+  <!-- Share panel (one instance, moved dynamically) -->
+  <div class="share-panel" id="sharePanel">
+    <div class="share-panel-title">Dela med AI</div>
+    <button id="shareCopy"><span class="share-icon">📋</span>Kopiera text</button>
+    <div class="share-divider"></div>
+    <a id="shareClaude" href="#" target="_blank" rel="noopener"><span class="share-icon">◆</span>Öppna i Claude</a>
+    <a id="shareChatGPT" href="#" target="_blank" rel="noopener"><span class="share-icon">●</span>Öppna i ChatGPT</a>
+    <a id="shareGemini" href="#" target="_blank" rel="noopener"><span class="share-icon">◇</span>Öppna i Gemini</a>
+  </div>
+
+  <!-- Copy toast -->
+  <div class="copy-toast" id="copyToast">Kopierat till urklipp</div>
+
+  <script>
+    const sharePanel = document.getElementById('sharePanel');
+    let activeShareStory = null;
+
+    function getStoryText(story) {
+      const h = story.querySelector('.story-headline')?.textContent?.trim() || '';
+      const s = story.querySelector('.story-summary')?.textContent?.trim() || '';
+      const detail = story.querySelector('.story-body-inner');
+      let d = '';
+      if (detail) {
+        detail.querySelectorAll('p').forEach(p => { d += p.textContent.trim() + '\n\n'; });
+      }
+      const rel = story.querySelector('.story-relevance');
+      let r = '';
+      if (rel) r = rel.textContent.trim();
+      const sources = [];
+      story.querySelectorAll('.story-sources a').forEach(a => {
+        sources.push(a.textContent.trim() + ': ' + a.href);
+      });
+      return `# ${h}\n\n${s}\n\n${d}${r ? '\n' + r + '\n' : ''}\nKällor:\n${sources.join('\n')}\n\n— Flava Pulse, 25 mars 2026`;
+    }
+
+    function buildShareURLs(text) {
+      const encoded = encodeURIComponent('Analysera den här artikeln från Flava Pulse och ge mig dina tankar:\n\n' + text);
+      return {
+        claude: 'https://claude.ai/new?q=' + encoded,
+        chatgpt: 'https://chatgpt.com/?q=' + encoded,
+        gemini: 'https://gemini.google.com/app?q=' + encoded
+      };
+    }
+
+    function showToast() {
+      const toast = document.getElementById('copyToast');
+      toast.classList.add('visible');
+      setTimeout(() => toast.classList.remove('visible'), 2000);
+    }
+
+    // Share button click
+    document.querySelectorAll('.share-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const story = btn.closest('.story');
+
+        if (activeShareStory === story && sharePanel.classList.contains('visible')) {
+          sharePanel.classList.remove('visible');
+          activeShareStory = null;
+          return;
+        }
+
+        activeShareStory = story;
+        story.appendChild(sharePanel);
+        sharePanel.classList.add('visible');
+
+        const text = getStoryText(story);
+        const urls = buildShareURLs(text);
+
+        document.getElementById('shareClaude').href = urls.claude;
+        document.getElementById('shareChatGPT').href = urls.chatgpt;
+        document.getElementById('shareGemini').href = urls.gemini;
+
+        document.getElementById('shareCopy').onclick = async (ev) => {
+          ev.stopPropagation();
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast();
+            sharePanel.classList.remove('visible');
+          } catch (err) {
+            // Fallback
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            showToast();
+            sharePanel.classList.remove('visible');
+          }
+        };
+      });
+    });
+
+    // Close share panel on outside click
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.share-panel') && !e.target.closest('.share-btn')) {
+        sharePanel.classList.remove('visible');
+        activeShareStory = null;
+      }
+    });
+
+    // Story expand/collapse
+    document.querySelectorAll('.story').forEach(story => {
+      story.addEventListener('click', e => {
+        if (e.target.closest('a') || e.target.closest('.share-btn') || e.target.closest('.share-panel')) return;
+        const expanded = story.classList.toggle('open');
+        story.setAttribute('aria-expanded', expanded);
+      });
+      story.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          if (e.target.closest('.share-btn') || e.target.closest('.share-panel')) return;
+          e.preventDefault();
+          const expanded = story.classList.toggle('open');
+          story.setAttribute('aria-expanded', expanded);
+        }
+      });
+    });
+
+    // Auto-open share if URL has ?share= param
+    const params = new URLSearchParams(window.location.search);
+    const shareId = params.get('share');
+    if (shareId) {
+      // Find story by approximate match and trigger share
+      const stories = document.querySelectorAll('.story');
+      stories.forEach(story => {
+        const headline = story.querySelector('.story-headline')?.textContent?.toLowerCase() || '';
+        if (headline.includes(shareId.replace(/-/g, ' ').substring(0, 12))) {
+          story.classList.add('open');
+          story.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => {
+            const btn = story.querySelector('.share-btn');
+            if (btn) btn.click();
+          }, 600);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

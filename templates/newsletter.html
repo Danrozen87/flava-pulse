@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flava Pulse — {{EDITION_TITLE}}</title>
+  <style>
+    :root {
+      --bg: #FAFAFA;
+      --surface: #FFFFFF;
+      --text-primary: #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary: #AEAEB2;
+      --accent: #007AFF;
+      --accent-soft: #E8F2FF;
+      --border: #E5E5EA;
+      --border-light: #F2F2F7;
+      --tag-tech: #5856D6;
+      --tag-hospitality: #FF9500;
+      --tag-taste: #FF2D55;
+      --tag-avatar: #30B0C7;
+      --tag-market: #34C759;
+      --tag-trends: #AF52DE;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    /* --- Header --- */
+    .header {
+      text-align: center;
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .header-logo {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .header-meta {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .header-meta time {
+      font-weight: 500;
+    }
+
+    /* --- Executive Summary --- */
+    .exec-summary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .exec-summary h2 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 16px;
+    }
+
+    .exec-summary ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .exec-summary li {
+      position: relative;
+      padding: 10px 0 10px 20px;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .exec-summary li:last-child { border-bottom: none; }
+
+    .exec-summary li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* --- Sections --- */
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-top: 8px;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .tag-tech { background: #EDEDFD; color: var(--tag-tech); }
+    .tag-hospitality { background: #FFF3E0; color: #E65100; }
+    .tag-taste { background: #FFE8EE; color: var(--tag-taste); }
+    .tag-avatar { background: #E0F5F9; color: #00838F; }
+    .tag-market { background: #E8F9ED; color: #1B7A2E; }
+    .tag-trends { background: #F3E8FD; color: var(--tag-trends); }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    /* --- Story Cards --- */
+    .story-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .story-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .story-summary {
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      user-select: none;
+    }
+
+    .story-summary:hover { background: var(--border-light); }
+
+    .story-indicator {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      margin-top: 2px;
+      position: relative;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .story-card.open .story-indicator {
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+
+    .story-card.open .story-indicator::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 3px;
+      width: 8px;
+      height: 5px;
+      border-left: 2px solid white;
+      border-bottom: 2px solid white;
+      transform: rotate(-45deg);
+    }
+
+    .story-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .story-headline {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .story-tldr {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .story-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    .story-source-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .story-source-badge a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .story-source-badge a:hover { text-decoration: underline; }
+
+    /* --- Expandable Detail --- */
+    .story-detail {
+      display: none;
+      padding: 0 24px 20px 60px;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .story-card.open .story-detail {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .story-detail p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .story-detail strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .story-detail .relevance {
+      background: var(--accent-soft);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: 12px;
+    }
+
+    .story-detail .relevance::before {
+      content: 'Relevant for Flava: ';
+      font-weight: 700;
+    }
+
+    .story-detail .sources-list {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .story-detail .sources-list span {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .story-detail .sources-list a {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 16px;
+      line-height: 1.8;
+    }
+
+    .story-detail .sources-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Key Numbers --- */
+    .key-numbers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .key-number {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .key-number .value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .key-number .label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* --- Footer --- */
+    .footer {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+
+    .footer .sources-footer {
+      margin-top: 24px;
+      text-align: left;
+    }
+
+    .footer .sources-footer h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+    }
+
+    .footer .sources-footer .source-group {
+      margin-bottom: 16px;
+    }
+
+    .footer .sources-footer .source-group h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .footer .sources-footer a {
+      display: inline-block;
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 12px;
+      line-height: 2;
+    }
+
+    .footer .sources-footer a:hover { text-decoration: underline; }
+
+    /* --- Responsive --- */
+    @media (max-width: 600px) {
+      .container { padding: 16px 16px 48px; }
+      .header { padding: 32px 0 28px; }
+      .header h1 { font-size: 22px; }
+      .exec-summary { padding: 20px; }
+      .story-summary { padding: 16px; gap: 12px; }
+      .story-detail { padding: 0 16px 16px 48px; }
+      .key-numbers { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* --- Print --- */
+    @media print {
+      body { background: white; }
+      .story-detail { display: block !important; }
+      .story-card { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="header">
+      <div class="header-logo">Flava Pulse</div>
+      <h1>{{EDITION_TITLE}}</h1>
+      <div class="header-meta">
+        <time datetime="{{DATE_ISO}}">{{DATE_DISPLAY}}</time> · Utgava {{EDITION_NUMBER}}
+      </div>
+    </header>
+
+    <section class="exec-summary">
+      <h2>Sammanfattning</h2>
+      <ul>
+        {{EXEC_SUMMARY_ITEMS}}
+      </ul>
+    </section>
+
+    <section class="key-numbers">
+      {{KEY_NUMBERS}}
+    </section>
+
+    <!-- TECH & AI -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-tag tag-tech">Tech & AI</span>
+        <h2 class="section-title">{{TECH_SECTION_TITLE}}</h2>
+      </div>
+      {{TECH_STORIES}}
+    </section>
+
+    <!-- RESTAURANG & HOSPITALITY -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-tag tag-hospitality">Restaurang</span>
+        <h2 class="section-title">{{HOSPITALITY_SECTION_TITLE}}</h2>
+      </div>
+      {{HOSPITALITY_STORIES}}
+    </section>
+
+    <!-- SMAK & PREFERENS -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-tag tag-taste">Smak & Preferens</span>
+        <h2 class="section-title">{{TASTE_SECTION_TITLE}}</h2>
+      </div>
+      {{TASTE_STORIES}}
+    </section>
+
+    <!-- AVATAR & REALTID -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-tag tag-avatar">Avatar & Realtid</span>
+        <h2 class="section-title">{{AVATAR_SECTION_TITLE}}</h2>
+      </div>
+      {{AVATAR_STORIES}}
+    </section>
+
+    <!-- MARKNAD & KONKURRENTER -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-tag tag-market">Marknad</span>
+        <h2 class="section-title">{{MARKET_SECTION_TITLE}}</h2>
+      </div>
+      {{MARKET_STORIES}}
+    </section>
+
+    <!-- MOJLIGHETER & TRENDER -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-tag tag-trends">Trender</span>
+        <h2 class="section-title">{{TRENDS_SECTION_TITLE}}</h2>
+      </div>
+      {{TRENDS_STORIES}}
+    </section>
+
+    <footer class="footer">
+      <p>
+        Flava Pulse sammanstalls automatiskt fran {{SOURCE_COUNT}}+ kallor.<br>
+        Varje artikel ar faktagranskad mot minst 2 oberoende kallor.
+      </p>
+      <div class="sources-footer">
+        <h3>Samtliga kallor denna utgava</h3>
+        {{SOURCES_FOOTER}}
+      </div>
+      <p style="margin-top: 24px; font-size: 11px;">
+        &copy; {{YEAR}} Flava · Preference Intelligence
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.story-summary').forEach(summary => {
+      summary.addEventListener('click', () => {
+        const card = summary.closest('.story-card');
+        card.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
