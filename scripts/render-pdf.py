@@ -50,15 +50,66 @@ async def render(edition, output_dir):
             });
         """)
 
-        # Hide share buttons and expand hints for clean print
+        # Hide interactive UI chrome and inject page-break rules
         await page.evaluate("""
+            // Hide interactive elements
             document.querySelectorAll('.share-btn, .share-panel, .story-expand-hint').forEach(el => {
                 el.style.display = 'none';
             });
-            // Remove hover bg since all are expanded
+
+            // Clean up story appearance
             document.querySelectorAll('.story').forEach(s => {
                 s.style.backgroundColor = 'transparent';
                 s.style.cursor = 'default';
+                s.style.breakInside = 'avoid';
+                s.style.pageBreakInside = 'avoid';
+            });
+
+            // Never break inside key numbers grid
+            document.querySelectorAll('.numbers').forEach(n => {
+                n.style.breakInside = 'avoid';
+                n.style.pageBreakInside = 'avoid';
+            });
+
+            // Never break inside the masthead or lede
+            document.querySelectorAll('.masthead, .lede').forEach(el => {
+                el.style.breakInside = 'avoid';
+                el.style.pageBreakInside = 'avoid';
+            });
+
+            // Section labels should prefer starting on a new page if near bottom
+            document.querySelectorAll('.section-label').forEach(label => {
+                label.style.breakAfter = 'avoid';
+                label.style.pageBreakAfter = 'avoid';
+            });
+
+            // Never split the relevance box from its story
+            document.querySelectorAll('.story-relevance').forEach(r => {
+                r.style.breakBefore = 'avoid';
+                r.style.pageBreakBefore = 'avoid';
+            });
+
+            // Never split sources from their story
+            document.querySelectorAll('.story-sources').forEach(s => {
+                s.style.breakBefore = 'avoid';
+                s.style.pageBreakBefore = 'avoid';
+            });
+
+            // Keep each story-body-inner together
+            document.querySelectorAll('.story-body-inner').forEach(b => {
+                b.style.breakInside = 'avoid';
+                b.style.pageBreakInside = 'avoid';
+            });
+
+            // Add breathing room between sections for cleaner breaks
+            document.querySelectorAll('.section').forEach(s => {
+                s.style.paddingTop = '16px';
+            });
+
+            // Colophon: keep together
+            document.querySelectorAll('.colophon').forEach(c => {
+                c.style.breakInside = 'avoid';
+                c.style.pageBreakInside = 'avoid';
             });
         """)
 
