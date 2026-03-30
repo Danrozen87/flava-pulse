@@ -1,0 +1,240 @@
+{
+  "edition": {
+    "number": "20260330-01",
+    "title": "Rost-AI gratis for drive-thru, HeyGen-deadline idag",
+    "date_iso": "2026-03-30",
+    "date_display": "30 mars 2026",
+    "source_count": 22,
+    "story_count": 11
+  },
+  "stories": [
+    {
+      "id": "quail-audivi-free-voice-ai",
+      "section": "tech_ai",
+      "headline": "Quail Digital och Audivi ger bort rost-AI-hardvara gratis",
+      "recency": "fresh",
+      "scores": { "temporal": 9, "impact": 5, "value": 7 },
+      "claims": [
+        "Quail Digital and Audivi launched free voice AI hardware platform for QSR",
+        "Quail provides audio hardware, Audivi provides AI ordering software",
+        "Drive-thru orders = 70%+ of sales at many QSR chains",
+        "Quail present in 32 countries"
+      ],
+      "predictions": ["Free hardware models will become standard for voice AI market entry"],
+      "actions": ["Monitor pricing pressure effects on in-dining voice AI expectations"],
+      "delta": {
+        "type": "BEKRAFTAT",
+        "note": "Confirms voice AI market crowding reported in 20260325-01. Hardware now given away free."
+      }
+    },
+    {
+      "id": "voice-ai-mission-critical-fsr",
+      "section": "tech_ai",
+      "headline": "Rost-AI blir mission-critical for fristaende restauranger",
+      "recency": "fresh",
+      "scores": { "temporal": 7, "impact": 8, "value": 8 },
+      "claims": [
+        "95%+ order accuracy from leading voice AI platforms",
+        "26% increase in phone order revenue",
+        "10,000+ locations running voice AI globally",
+        "40% of phone calls unanswered during peak hours",
+        "$30K/year lost per restaurant from unanswered calls"
+      ],
+      "predictions": ["Voice AI will become standard infrastructure for independent restaurants within 18 months"],
+      "actions": ["Use $30K/year lost metric in Flava sales materials to illustrate cost of inaction"]
+    },
+    {
+      "id": "restaurant-chains-ai-investment-roi-gap",
+      "section": "tech_ai",
+      "headline": "51% av restaurangkedjor investerar i AI, men ROI slaper",
+      "recency": "fresh",
+      "scores": { "temporal": 7, "impact": 8, "value": 9 },
+      "claims": [
+        "51% of restaurant chains actively investing in AI",
+        "22% planning to start, 10% targeting next year",
+        "Most frequent: marketing/personalization (53%), predictive analytics (40%), voice ordering (39%)",
+        "62% cite data visibility across locations as top challenge",
+        "Few have seen AI really move the needle yet"
+      ],
+      "predictions": ["First mover with hard ROI proof from AI pilots will capture disproportionate market attention"],
+      "actions": ["Build measurable results (average check, upsell rate) from Flava pilots"],
+      "delta": {
+        "type": "BEKRAFTAT",
+        "note": "Confirms adoption-not-features barrier from 20260325-01. 51% investing but ROI unproven."
+      }
+    },
+    {
+      "id": "nordic-restaurant-list-2026",
+      "section": "hospitality",
+      "headline": "Nordiska restauranglistan 2026: 12 basta nyoppningarna",
+      "recency": "recent",
+      "scores": { "temporal": 6, "impact": 7, "value": 6 },
+      "claims": [
+        "The Nordic Nomad annual hot list covers Denmark, Finland, Iceland, Norway, Sweden",
+        "Emberlin (Frantzen Group, Stockholm) featured",
+        "La Girafe (Pontus Frithiof, Uppsala) featured"
+      ],
+      "predictions": [],
+      "actions": ["Approach Emberlin and La Girafe as potential Flava pilot partners"]
+    },
+    {
+      "id": "swedish-hotel-growth-2026",
+      "section": "hospitality",
+      "headline": "Svenska hotellbranschen konsoliderar tillvaxten 2026",
+      "recency": "recent",
+      "scores": { "temporal": 5, "impact": 6, "value": 5 },
+      "claims": [
+        "Highest guest nights in a decade summer 2025, +5.6% YoY",
+        "Occupancy rate 72%",
+        "Scandic Go opening in Gothenburg (176 rooms) and Umea (100 rooms)",
+        "Interest rate easing expected H2 2026"
+      ],
+      "predictions": ["Hotel restaurant dining will grow as hotel occupancy increases"],
+      "actions": ["Evaluate Scandic Go as potential hotel-restaurant pilot segment"]
+    },
+    {
+      "id": "deloitte-ai-restaurants-operational-gap",
+      "section": "hospitality",
+      "headline": "Deloitte: AI i restauranger, men operativa gap kvarstar",
+      "recency": "fresh",
+      "scores": { "temporal": 6, "impact": 8, "value": 7 },
+      "claims": [
+        "Gap between order processing and food preparation fragments guest experience",
+        "Without unified data foundations, AI is just another disconnected tool"
+      ],
+      "predictions": ["Operators who unify order, kitchen, and guest data will see highest AI ROI"],
+      "actions": ["Position Flava's Caspeco POS integration as the unified data foundation Deloitte describes"]
+    },
+    {
+      "id": "heygen-interactive-avatar-shutdown-deadline",
+      "section": "avatar",
+      "headline": "HeyGen Interactive Avatar stangs idag, 31 mars",
+      "recency": "breaking",
+      "scores": { "temporal": 10, "impact": 10, "value": 10 },
+      "claims": [
+        "Migration deadline confirmed: March 31, 2026",
+        "90-day grace period ending",
+        "Migration guide and FAQ at docs.liveavatar.com",
+        "Includes avatars, voices, knowledge bases (renamed contexts)",
+        "30-day temporary LiveAvatar subscription for migrating users"
+      ],
+      "predictions": ["Post-migration, LiveAvatar SDK will become the standard for real-time avatar integration"],
+      "actions": ["URGENT: Complete Flava HeyGen-to-LiveAvatar migration today if not done"],
+      "delta": {
+        "type": "UPPFOLJNING",
+        "note": "Follow-up from 20260325-01 where deadline was 6 days away. Now it is today."
+      }
+    },
+    {
+      "id": "foodnavigator-foodtech-funding-2026",
+      "section": "market",
+      "headline": "FoodNavigator: Sa vinner foodtech-startups finansiering 2026",
+      "recency": "fresh",
+      "scores": { "temporal": 8, "impact": 6, "value": 7 },
+      "claims": [
+        "Investors want real supply-chain problems solved",
+        "Clean cap tables preferred",
+        "Tight market for foodtech funding",
+        "Focus shifted from growth-at-all-cost to unit economics"
+      ],
+      "predictions": ["Foodtech funding will remain tight through 2026, favoring proven unit economics"],
+      "actions": ["Emphasize measurable unit economics from pilots in Flava investment materials"]
+    },
+    {
+      "id": "toast-revenue-gaap-profitability",
+      "section": "market",
+      "headline": "Toast nar $4,96 miljarder i arsintakt, forsta GAAP-vinsten",
+      "recency": "background",
+      "scores": { "temporal": 5, "impact": 5, "value": 6 },
+      "claims": [
+        "Toast annual revenue $4.96B (2024)",
+        "First GAAP profitability: $19M net income",
+        "$373M adjusted EBITDA",
+        "$900M total funding across 7 rounds"
+      ],
+      "predictions": [],
+      "actions": ["Reference Toast profitability trajectory when discussing Caspeco partnership opportunity"]
+    },
+    {
+      "id": "mckinsey-personalization-retention-revenue",
+      "section": "trends",
+      "headline": "McKinsey: Personalisering okar retention 20-30%, snittnota 10-15%",
+      "recency": "fresh",
+      "scores": { "temporal": 5, "impact": 9, "value": 9 },
+      "claims": [
+        "Effective personalization: +20-30% customer retention",
+        "+10-15% average order value",
+        "AI-driven menu design analyzing ordering patterns, dietary preferences, behavioral trends"
+      ],
+      "predictions": ["Personalization ROI data will drive accelerated investment in taste profiling"],
+      "actions": ["Use McKinsey 10-15% average check increase as anchor metric in Flava pitch deck"]
+    },
+    {
+      "id": "ai-menu-personalization-platforms-compared",
+      "section": "trends",
+      "headline": "AI-verktyg for personaliserade menyer 2026: 6 plattformar jamforda",
+      "recency": "recent",
+      "scores": { "temporal": 6, "impact": 7, "value": 7 },
+      "claims": [
+        "Otter, Craver, Malou.io among platforms compared",
+        "Focus: menu optimization, dynamic pricing, dietary personalization",
+        "None combine voice + avatar + taste profiling"
+      ],
+      "predictions": ["A platform combining voice, avatar, and taste profiling will emerge as category leader"],
+      "actions": ["Use competitive comparison to validate Flava differentiation in investor presentations"]
+    }
+  ],
+  "arcs": [
+    {
+      "name": "Voice AI Drive-Thru Adoption",
+      "status": "active",
+      "data_points": [
+        "50% prediction for end of 2026 (20260325-01)",
+        "Quail+Audivi giving away hardware free (20260330-01)",
+        "10,000+ locations globally (20260330-01)",
+        "95%+ order accuracy (20260330-01)"
+      ],
+      "first_edition": "20260325-01"
+    },
+    {
+      "name": "HeyGen Platform Migration",
+      "status": "critical",
+      "data_points": [
+        "Interactive Avatar sunset March 31 2026 (20260325-01)",
+        "Migration deadline TODAY (20260330-01)",
+        "LiveAvatar SDK migration guide published (20260330-01)"
+      ],
+      "first_edition": "20260325-01"
+    },
+    {
+      "name": "Restaurant AI ROI Gap",
+      "status": "active",
+      "data_points": [
+        "Adoption not features is barrier (20260325-01)",
+        "51% investing but few see it move the needle (20260330-01)",
+        "62% cite data visibility as top challenge (20260330-01)",
+        "Deloitte: operational gap fragments guest experience (20260330-01)"
+      ],
+      "first_edition": "20260325-01"
+    },
+    {
+      "name": "Personalization ROI Validation",
+      "status": "active",
+      "data_points": [
+        "McKinsey: +20-30% retention, +10-15% average check (20260330-01)",
+        "No platform combines voice + avatar + taste profiling (20260330-01)"
+      ],
+      "first_edition": "20260330-01"
+    },
+    {
+      "name": "Swedish Premium Dining Expansion",
+      "status": "active",
+      "data_points": [
+        "Emberlin and La Girafe opening (20260325-01, 20260330-01)",
+        "Hotel guest nights at decade high (20260330-01)",
+        "Scandic Go expanding in Gothenburg and Umea (20260330-01)"
+      ],
+      "first_edition": "20260325-01"
+    }
+  ]
+}
